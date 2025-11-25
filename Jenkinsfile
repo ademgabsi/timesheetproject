@@ -1,8 +1,8 @@
-pipeline{agent any
+pipeline{ agent any
 
     tools {
-        jdk 'JAVA_HOME'
-        maven 'M2_HOME'
+        jdk 'Java17'     // le nom EXACT configuré dans Jenkins
+        maven 'Maven3'   // le nom EXACT configuré dans Jenkins
     }
 
     stages {
@@ -10,7 +10,7 @@ pipeline{agent any
         stage('GIT') {
             steps {
                 git branch: 'master',
-                    url: 'https://github.com/hwafa/timesheetproject.git'
+                    url: 'https://github.com/ademgabsi/timesheetproject.git'
             }
         }
 
@@ -19,6 +19,5 @@ pipeline{agent any
                 sh 'mvn clean compile'
             }
         }
-
     }
 }
